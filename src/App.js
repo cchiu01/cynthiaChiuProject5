@@ -8,7 +8,7 @@ import Form from './components/Form'
 import Weather from './components/Weather'
 
 
-const url = 'api.openweathermap.org/data/2.5/weather';
+const url = 'http://api.openweathermap.org/data/2.5/weather';
 const city = 'Toronto,ca'
 const apiKey = '224a83bd377a26022f42bccef516e3cd';
 const units = 'metric';
@@ -16,29 +16,40 @@ const units = 'metric';
 
 class App extends Component {
 
-  componentDidMount(){
-    console.log('component did mount was called');
-
-    // axios.get(url, {
-    //   params: {
-    //     q: city,
-    //     APPID: apiKey,
-    //     units: units
-    //   }
-    // }).then((res) => {
-    //   console.log(res)
-    // })
-
+  constructor(){
+    super();
+    this.state = {
+      city:'',
+      country:'',
+      temp: undefined,
+      description: '',
+      error: ''
+    };
   }
 
-  
+  componentDidMount(){
+    console.log('component did mount was called');
+  }
+
+  getWeather = () => {
+    axios.get(url, {
+      params: {
+        q: city,
+        APPID: apiKey,
+        units: units
+      }
+    }).then((res) => {
+      console.log(res.data);
+      console.log(Math.floor(res.data.main.temp));
+    })
+  }
 
   render() {
     console.log('render was called')
     return (
       <div className="App">
         <Title />
-        <Form />
+        <Form getWeather={this.getWeather} />
         <Weather />
       </div>
     );

@@ -5,8 +5,10 @@ class Form extends Component {
     handleSubmit= (e) => {
         e.preventDefault();
         console.log('handle submit called');
-        // call getWeather      
+        // call getWeather  
+        this.props.getWeather();    
     }
+
 
 
     render (){
