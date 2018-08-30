@@ -2,23 +2,40 @@ import React, { Component } from 'react'
 
 class Form extends Component {
 
-    handleSubmit= (e) => {
-        e.preventDefault();
-        console.log('handle submit called');
-        // call getWeather  
-        this.props.getWeather();    
+    constructor(){
+        super();
+        this.state = {
+            city: '',
+            country: ''
+        }
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        // call getWeather  
+        this.props.getWeather(this.state.city, this.state.country);
+        this.setState({
+            city:'',
+            country:''
+        }) 
+    }
 
+    handleChange = (e) => {
+        console.log('handle change');
+        this.setState({
+            [e.target.id]: e.target.value
+        }
+        )
+    }
 
     render (){
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="City">THIS IS MY CITY LABEL</label>
-                    <input type="text" id="City" placeholder='Try "Toronto"'/>
-                    <label htmlFor="Country">Country label</label>
-                    <input type="text" id="Country" placeholder='Try "CA"'/>
+                    <label htmlFor="City">City</label>
+                    <input onChange={this.handleChange} type="text" id="city" placeholder='Try "Toronto"' value={this.state.city}/>
+                    <label htmlFor="Country">Country</label>
+                    <input onChange={this.handleChange} type="text" id="country" placeholder='Try "CA"' value={this.state.country}/>
                     <button>Get weather</button>
                 </form>
             </div>

@@ -9,7 +9,6 @@ import Weather from './components/Weather'
 
 
 const url = 'http://api.openweathermap.org/data/2.5/weather';
-const city = 'Toronto,ca'
 const apiKey = '224a83bd377a26022f42bccef516e3cd';
 const units = 'metric';
 
@@ -27,20 +26,24 @@ class App extends Component {
     };
   }
 
-  componentDidMount(){
-    console.log('component did mount was called');
-  }
+  // componentDidMount(){
+  //   console.log('component did mount was called');
+  // }
 
-  getWeather = () => {
+  getWeather = (city,country) => {
     axios.get(url, {
       params: {
-        q: city,
+        q: `${city},${country}`,
         APPID: apiKey,
         units: units
       }
     }).then((res) => {
-      console.log(res.data);
-      console.log(Math.floor(res.data.main.temp));
+      // console.log(res.data);
+      // console.log(Math.floor(res.data.main.temp));
+      this.setState({
+        temp: Math.floor(res.data.main.temp)
+      })
+      console.log(this.state);
     })
   }
 
