@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios'
 
 // COMPONENTS //
@@ -18,6 +17,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      // id:'',
       city:'',
       country:'',
       temp: undefined,
@@ -30,6 +30,7 @@ class App extends Component {
   //   console.log('component did mount was called');
   // }
 
+
   getWeather = (city,country) => {
     axios.get(url, {
       params: {
@@ -38,12 +39,14 @@ class App extends Component {
         units: units
       }
     }).then((res) => {
-      // console.log(res.data);
-      // console.log(Math.floor(res.data.main.temp));
+      console.log(res)
       this.setState({
-        temp: Math.floor(res.data.main.temp)
-      })
-      console.log(this.state);
+        city: res.data.name,
+        country: res.data.sys.country,
+        temp: Math.floor(res.data.main.temp),
+        description: res.data.weather[0].description,
+      });
+      // console.log(this.state)
     })
   }
 
@@ -52,8 +55,9 @@ class App extends Component {
     return (
       <div className="App">
         <Title />
-        <Form getWeather={this.getWeather} />
-        <Weather />
+        <Form getWeather={this.getWeather}  />
+        <Weather city={this.state.city} country={this.state.country} temp={this.state.temp} 
+                  description={this.state.description}/>
       </div>
     );
   }
