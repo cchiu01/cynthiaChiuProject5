@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import firebase from './firebase'
+
 
 // COMPONENTS //
 import Title from './components/Title'
@@ -17,9 +19,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      
         cityList:[]
-      
     }
   }
 
@@ -41,6 +41,12 @@ class App extends Component {
         description: res.data.weather[0].description,});
       this.setState({cityList : cities}) 
     })
+  }
+
+  componentDidMount(){
+    const weatherRef = firebase.database().ref();
+    // weatherRef.on('value', (snapshot) => {})
+    console.log('weatherRef')
   }
 
   render() {

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
     class Weather extends Component {
         render(){
-            // const array = Object.entries(this.props.displayWeather);
             return(
                 <section>
                     {this.props.weatherList.map((item) => {
