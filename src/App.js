@@ -17,19 +17,11 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      // id:'',
-      city:'',
-      country:'',
-      temp: undefined,
-      description: '',
-      error: ''
-    };
+      
+        cityList:[]
+      
+    }
   }
-
-  // componentDidMount(){
-  //   console.log('component did mount was called');
-  // }
-
 
   getWeather = (city,country) => {
     axios.get(url, {
@@ -39,14 +31,15 @@ class App extends Component {
         units: units
       }
     }).then((res) => {
-      console.log(res)
-      this.setState({
+      // console.log(res)
+      const cities=Array.from(this.state.cityList);
+      cities.push(
+        {key: res.data.id,
         city: res.data.name,
         country: res.data.sys.country,
         temp: Math.floor(res.data.main.temp),
-        description: res.data.weather[0].description,
-      });
-      // console.log(this.state)
+        description: res.data.weather[0].description,});
+      this.setState({cityList : cities}) 
     })
   }
 
@@ -56,8 +49,7 @@ class App extends Component {
       <div className="App">
         <Title />
         <Form getWeather={this.getWeather}  />
-        <Weather city={this.state.city} country={this.state.country} temp={this.state.temp} 
-                  description={this.state.description}/>
+        <Weather weatherList={this.state.cityList} />
       </div>
     );
   }

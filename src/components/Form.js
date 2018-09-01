@@ -35,7 +35,7 @@ class Form extends Component {
                     <label htmlFor="City">City</label>
                     <input onChange={this.handleChange} type="text" id="city" placeholder='Try "toronto"' value={this.state.city}/>
                     <label htmlFor="Country">Country</label>
-                    <input onChange={this.handleChange} type="text" id="country" placeholder='Try "ca"' value={this.state.country}/>
+                    <input onChange={this.handleChange} type="text" id="country" placeholder='Try "ca" or "us"' value={this.state.country}/>
                     <button>Get weather</button>
                 </form>
             </div>
