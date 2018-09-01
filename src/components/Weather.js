@@ -10,6 +10,9 @@ import React, { Component } from 'react'
                                         <p>{item.city} {item.country}</p>
                                         <p>{item.temp}</p>
                                         <p>{item.description}</p>
+                                        <button onClick={() => {
+                                            this.props.deleteFromDatabase(item.firebaseKey)
+                                        }}>delete</button>
                                     </div>
                                     )
                                 })}

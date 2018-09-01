@@ -52,11 +52,33 @@ class App extends Component {
     // console.log(cityObject)
   }
 
+  deleteFromDatabase = (firebaseKey) => {
+    console.log(firebaseKey);
+    const cityDbRef = firebase.database().ref(`/${firebaseKey}`);
+    cityDbRef.remove();
+    // remove from firebase
+    // if successful, update state
+  }
+
   componentDidMount(){
     
-    // console.log(weatherRef);
+    console.log('component did mount');
     weatherRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
+      let cityArray = Object.entries(snapshot.val()).map((item) => {
+        return({
+          firebaseKey: item[0],
+          key: item[1].key,
+          city:item[1].city,
+          country: item[1].country, 
+          temp: item[1].temp,
+          description: item[1].description
+        })
+
+      })
+      this.setState({
+        cityList: cityArray
+      }
+      )
     })
     
   }
@@ -67,7 +89,7 @@ class App extends Component {
       <div className="App">
         <Title />
         <Form getWeather={this.getWeather}  />
-        <Weather weatherList={this.state.cityList} />
+        <Weather weatherList={this.state.cityList} deleteFromDatabase={this.deleteFromDatabase}/>
       </div>
     );
   }
