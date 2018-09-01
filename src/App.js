@@ -13,6 +13,7 @@ const url = 'http://api.openweathermap.org/data/2.5/weather';
 const apiKey = '224a83bd377a26022f42bccef516e3cd';
 const units = 'metric';
 
+const weatherRef = firebase.database().ref();
 
 class App extends Component {
 
@@ -33,20 +34,31 @@ class App extends Component {
     }).then((res) => {
       // console.log(res)
       const cities=Array.from(this.state.cityList);
-      cities.push(
-        {key: res.data.id,
+      const cityObject = {
+        key: res.data.id,
         city: res.data.name,
         country: res.data.sys.country,
         temp: Math.floor(res.data.main.temp),
-        description: res.data.weather[0].description,});
+        description: res.data.weather[0].description,
+      }
+      cities.push(cityObject);
       this.setState({cityList : cities}) 
+      this.addToDatabase(cityObject);
     })
   }
 
+  addToDatabase = (cityObject) => {
+    weatherRef.push(cityObject);
+    // console.log(cityObject)
+  }
+
   componentDidMount(){
-    const weatherRef = firebase.database().ref();
-    // weatherRef.on('value', (snapshot) => {})
-    console.log('weatherRef')
+    
+    // console.log(weatherRef);
+    weatherRef.on('value', (snapshot) => {
+      console.log(snapshot.val());
+    })
+    
   }
 
   render() {
