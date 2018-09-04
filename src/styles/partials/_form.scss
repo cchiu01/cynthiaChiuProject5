@@ -22,18 +22,25 @@
 form {
     display: flex;
     justify-content: space-evenly;
+    background: rgba(255,255,255, 0.3);
+    border-radius: 20px;
+    padding: 50px;
     & .input-container {
         position: relative;
     }
     & label {
         position: absolute;
         top: 10px;
-        left: 0;
+        left: 5px;
         color: #999;
         transition: 0.5s;
     }
     & .form-input {
         padding: 10px 0;
+        box-shadow: none;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #999
     }    
     & .form-input:focus + label,
     & .form-input:valid + label

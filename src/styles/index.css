@@ -158,7 +158,10 @@ button {
 
 form {
   display: flex;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 50px; }
   form .input-container {
     position: relative; }
   form label {
@@ -168,7 +171,11 @@ form {
     color: #999;
     transition: 0.5s; }
   form .form-input {
-    padding: 10px 0; }
+    padding: 10px 0;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #999; }
   form .form-input:focus + label,
   form .form-input:valid + label {
     top: -20px;
