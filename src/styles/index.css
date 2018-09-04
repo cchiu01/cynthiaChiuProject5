@@ -147,7 +147,11 @@ h1, h2, h3 {
   text-transform: uppercase; }
 
 header {
-  color: #fff; }
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3); }
+  header h1 {
+    margin-top: 0;
+    padding-top: 30px; }
   header .wrapper {
     display: flex;
     align-content: center;
@@ -160,17 +164,20 @@ header {
 .body {
   background-image: url(../images/weather-bg.jpg);
   background-size: cover;
-  padding-top: 10px;
-  padding-bottom: 30px;
   background-repeat: no-repeat;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh; }
+
+main {
+  min-height: 85vh; }
 
 form {
   display: flex;
   justify-content: space-evenly;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  padding: 50px; }
+  padding: 50px;
+  margin-top: 20px; }
   @media (max-width: 800px) {
     form {
       flex-direction: column;
@@ -218,11 +225,15 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+  .weather-listing-container button {
+    background: none;
+    border: none; }
   .weather-listing-container .temp {
     font-size: 5.0rem; }
 
 .city-weather-tile {
-  flex: 1 0 calc(100%/3 - 40px);
+  flex: 0 1 calc(100%/3 - 40px);
+  width: 33%;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
   padding: 20px 50px;
@@ -233,4 +244,6 @@ form {
 
 footer {
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px; }

@@ -8,14 +8,18 @@
         align-items: center;
         
     }
-    
+    & button {
+        background: none;
+        border: none;
+    }
     & .temp{
         font-size: 5.0rem;
     }
 }
 
 .city-weather-tile {
-    flex: 1 0 calc(100%/3 - 40px);
+    flex: 0 1 calc(100%/3 - 40px);
+    width: 33%;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.5);
     padding: 20px 50px;

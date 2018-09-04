@@ -1,12 +1,14 @@
 .body {
     background-image: url(../images/weather-bg.jpg); 
     background-size: cover;
-    padding-top: 10px;
-    padding-bottom: 30px;
     background-repeat: no-repeat;
     font-family: $main;
+    min-height: 100vh;
 }
 
+main {
+    min-height: 85vh;
+}
 
 form {
     display: flex;
@@ -14,6 +16,7 @@ form {
     background: rgba(255,255,255, 0.3);
     border-radius: 20px;
     padding: 50px;
+    margin-top:20px;
     @media (max-width: $desktop) {
         flex-direction: column;
         padding: 20px;
