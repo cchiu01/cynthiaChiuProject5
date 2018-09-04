@@ -85,18 +85,20 @@ class App extends Component {
     console.log('render was called')
     return (
       <div className="App body">
-        <div className="wrapper">
           <header>
-            <Title />
+            <div className="wrapper">
+              <Title /> 
+            </div>
           </header>
           <main>
-            <Form getWeather={this.getWeather}  />
-            <Weather weatherList={this.state.cityList} deleteFromDatabase={this.deleteFromDatabase}/>
+            <div className="wrapper">
+              <Form getWeather={this.getWeather}  />
+              <Weather weatherList={this.state.cityList} deleteFromDatabase={this.deleteFromDatabase}/>
+            </div>
           </main>
           <footer>
 
           </footer>
-        </div>
       
       </div>
     );

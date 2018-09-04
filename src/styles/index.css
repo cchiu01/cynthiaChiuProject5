@@ -131,25 +131,51 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.body {
-  background-image: url(../images/weather-bg.jpg);
-  height: 100vh;
-  background-size: cover;
-  padding-top: 10px;
-  font-family: 'Roboto Mono', monospace; }
-
 .wrapper {
   max-width: 1080px;
   width: 80%;
   margin: 0 auto; }
 
+button {
+  background: none; }
+
+.body {
+  background-image: url(../images/weather-bg.jpg);
+  background-size: cover;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  background-repeat: no-repeat;
+  font-family: 'Roboto Mono', monospace; }
+
 .city-weather-tile {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
   padding: 20px 50px;
-  margin: 20px; }
+  margin: 20px 0;
+  transition: all 0.5s ease-in-out; }
+  .city-weather-tile:hover {
+    transform: scale(1.1); }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif; }
+form {
+  display: flex;
+  justify-content: space-evenly; }
+  form .input-container {
+    position: relative; }
+  form label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    transition: 0.5s; }
+  form .form-input {
+    padding: 10px 0; }
+  form .form-input:focus + label,
+  form .form-input:valid + label {
+    top: -20px;
+    font-weight: 600;
+    color: pink; }
+  form .form-input:focus,
+  form .form-input:valid {
+    border-bottom: 2px solid pink; }
+  form input:invalid {
+    box-shadow: none; }

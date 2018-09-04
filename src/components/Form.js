@@ -32,10 +32,14 @@ class Form extends Component {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="City">City</label>
-                    <input onChange={this.handleChange} type="text" id="city" placeholder='try "toronto"' value={this.state.city}/>
-                    <label htmlFor="Country">Country</label>
-                    <input onChange={this.handleChange} type="text" id="country" placeholder='try "ca" or "us"' value={this.state.country}/>
+                    <div className="input-container">
+                        <input className="form-input" onChange={this.handleChange} type="text" id="city"  required value={this.state.city}/>
+                        <label htmlFor="City">City</label>
+                    </div>
+                    <div className="input-container">
+                        <input className="form-input" onChange={this.handleChange} type="text" id="country" required value={this.state.country}/>
+                        <label htmlFor="Country">Country</label>
+                    </div>
                     <button>Get weather</button>
                 </form>
             </div>
