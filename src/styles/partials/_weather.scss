@@ -1,0 +1,27 @@
+.weather-listing-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    & .weather-tile-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    
+    & .temp{
+        font-size: 5.0rem;
+    }
+}
+
+.city-weather-tile {
+    flex: 1 0 calc(100%/3 - 40px);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px 50px;
+    margin: 20px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+    transform: scale(1.1);
+    }
+} 

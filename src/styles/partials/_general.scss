@@ -1,11 +1,14 @@
+// html {
+//     font-size: 62.5%
+// }
+
 .wrapper {
     max-width: 1080px;
     width: 80%;
     margin: 0 auto;
 }
 
-button {
-    // border: none;
-    background: none;
+.body {
+    font-family: $main;
 }
 

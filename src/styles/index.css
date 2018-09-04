@@ -136,8 +136,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   width: 80%;
   margin: 0 auto; }
 
-button {
-  background: none; }
+.body {
+  font-family: "Open Sans", sans-serif; }
+
+.button-submit {
+  text-transform: uppercase; }
+
+h1, h2, h3 {
+  font-family: "Muli", sans-serif; }
 
 .body {
   background-image: url(../images/weather-bg.jpg);
@@ -145,16 +151,7 @@ button {
   padding-top: 10px;
   padding-bottom: 30px;
   background-repeat: no-repeat;
-  font-family: 'Roboto Mono', monospace; }
-
-.city-weather-tile {
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 20px 50px;
-  margin: 20px 0;
-  transition: all 0.5s ease-in-out; }
-  .city-weather-tile:hover {
-    transform: scale(1.1); }
+  font-family: "Open Sans", sans-serif; }
 
 form {
   display: flex;
@@ -162,27 +159,62 @@ form {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 50px; }
+  @media (max-width: 800px) {
+    form {
+      flex-direction: column;
+      padding: 20px; } }
   form .input-container {
     position: relative; }
+    @media (max-width: 800px) {
+      form .input-container {
+        margin: 20px 0; } }
   form label {
     position: absolute;
     top: 10px;
-    left: 0;
-    color: #999;
+    left: 5px;
+    color: black;
     transition: 0.5s; }
   form .form-input {
     padding: 10px 0;
     box-shadow: none;
     outline: none;
     border: none;
-    border-bottom: 2px solid #999; }
+    border-bottom: 2px solid black;
+    background: none; }
   form .form-input:focus + label,
   form .form-input:valid + label {
     top: -20px;
     font-weight: 600;
-    color: pink; }
+    color: goldenrod; }
   form .form-input:focus,
   form .form-input:valid {
-    border-bottom: 2px solid pink; }
+    border-bottom: 2px solid goldenrod; }
   form input:invalid {
     box-shadow: none; }
+  form .button-submit {
+    border: none;
+    background: goldenrod;
+    color: #fff; }
+    @media (max-width: 800px) {
+      form .button-submit {
+        width: 50%; } }
+
+.weather-listing-container {
+  display: flex;
+  flex-wrap: wrap; }
+  .weather-listing-container .weather-tile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .weather-listing-container .temp {
+    font-size: 5.0rem; }
+
+.city-weather-tile {
+  flex: 1 0 calc(100%/3 - 40px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px 50px;
+  margin: 20px;
+  transition: all 0.5s ease-in-out; }
+  .city-weather-tile:hover {
+    transform: scale(1.1); }

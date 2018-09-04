@@ -4,20 +4,9 @@
     padding-top: 10px;
     padding-bottom: 30px;
     background-repeat: no-repeat;
-    font-family: 'Roboto Mono', monospace;
+    font-family: $main;
 }
 
-
-.city-weather-tile {
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 20px 50px;
-    margin: 20px 0;
-    transition: all 0.5s ease-in-out;
-    &:hover {
-    transform: scale(1.1);
-    }
-} 
 
 form {
     display: flex;
@@ -25,14 +14,21 @@ form {
     background: rgba(255,255,255, 0.3);
     border-radius: 20px;
     padding: 50px;
+    @media (max-width: $desktop) {
+        flex-direction: column;
+        padding: 20px;
+    }
     & .input-container {
         position: relative;
+    @media (max-width: $desktop) {
+        margin: 20px 0;
+    }
     }
     & label {
         position: absolute;
         top: 10px;
         left: 5px;
-        color: #999;
+        color: black;
         transition: 0.5s;
     }
     & .form-input {
@@ -40,21 +36,30 @@ form {
         box-shadow: none;
         outline: none;
         border: none;
-        border-bottom: 2px solid #999
+        border-bottom: 2px solid black;
+        background: none;
     }    
     & .form-input:focus + label,
     & .form-input:valid + label
     {
         top: -20px;
         font-weight: 600;
-        color: pink;
+        color: goldenrod;
     }
     & .form-input:focus,
     & .form-input:valid
     {
-        border-bottom: 2px solid pink;
+        border-bottom: 2px solid goldenrod;
     }
     & input:invalid {
     box-shadow: none;
+    }
+    & .button-submit {
+        border:none;
+        background: goldenrod;
+        color: #fff;
+        @media (max-width: $desktop) {
+        width:50%;
+    }
     }
 }
