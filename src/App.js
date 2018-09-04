@@ -86,9 +86,7 @@ class App extends Component {
     return (
       <div className="App body">
           <header>
-            <div className="wrapper">
               <Title /> 
-            </div>
           </header>
           <main>
             <div className="wrapper">
@@ -97,7 +95,7 @@ class App extends Component {
             </div>
           </main>
           <footer>
-
+          <div className="wrapper">© 2018 Cynthia Chiu</div>
           </footer>
       
       </div>

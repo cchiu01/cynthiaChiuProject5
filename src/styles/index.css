@@ -143,7 +143,19 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   text-transform: uppercase; }
 
 h1, h2, h3 {
-  font-family: "Muli", sans-serif; }
+  font-family: "Muli", sans-serif;
+  text-transform: uppercase; }
+
+header {
+  color: #fff; }
+  header .wrapper {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between; }
+  @media (max-width: 600px) {
+    header .slogan {
+      display: none; } }
 
 .body {
   background-image: url(../images/weather-bg.jpg);
@@ -218,3 +230,7 @@ form {
   transition: all 0.5s ease-in-out; }
   .city-weather-tile:hover {
     transform: scale(1.1); }
+
+footer {
+  text-align: center;
+  color: #fff; }

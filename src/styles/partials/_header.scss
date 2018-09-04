@@ -1,0 +1,14 @@
+header {
+    color: #fff;
+    & .wrapper {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    }
+    & .slogan{
+        @media (max-width: $tablet) {
+        display:none;
+        }
+    }
+}
