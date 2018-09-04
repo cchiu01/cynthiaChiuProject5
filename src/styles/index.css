@@ -131,9 +131,23 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-div {
-  background: cornflowerblue;
+.body {
+  background-image: url(../images/weather-bg.jpg);
+  height: 100vh;
+  background-size: cover;
+  padding-top: 10px;
   font-family: 'Roboto Mono', monospace; }
+
+.wrapper {
+  max-width: 1080px;
+  width: 80%;
+  margin: 0 auto; }
+
+.city-weather-tile {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px 50px;
+  margin: 20px; }
 
 body {
   margin: 0;

@@ -33,9 +33,9 @@ class Form extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="City">City</label>
-                    <input onChange={this.handleChange} type="text" id="city" placeholder='Try "toronto"' value={this.state.city}/>
+                    <input onChange={this.handleChange} type="text" id="city" placeholder='try "toronto"' value={this.state.city}/>
                     <label htmlFor="Country">Country</label>
-                    <input onChange={this.handleChange} type="text" id="country" placeholder='Try "ca" or "us"' value={this.state.country}/>
+                    <input onChange={this.handleChange} type="text" id="country" placeholder='try "ca" or "us"' value={this.state.country}/>
                     <button>Get weather</button>
                 </form>
             </div>

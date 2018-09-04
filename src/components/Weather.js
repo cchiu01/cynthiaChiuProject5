@@ -6,13 +6,13 @@ import React, { Component } from 'react'
                 <section>
                     {this.props.weatherList.map((item) => {
                                     return(
-                                    <div key={item.key}>
+                                    <div className="city-weather-tile" key={item.key}>
                                         <p>{item.city} {item.country}</p>
                                         <p>{item.temp}</p>
                                         <p>{item.description}</p>
                                         <button onClick={() => {
                                             this.props.deleteFromDatabase(item.firebaseKey)
-                                        }}>delete</button>
+                                            }}><i class="fas fa-times"></i></button>
                                     </div>
                                     )
                                 })}

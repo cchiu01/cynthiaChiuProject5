@@ -32,7 +32,6 @@ class App extends Component {
         units: units
       }
     }).then((res) => {
-      // console.log(res)
       const cities=Array.from(this.state.cityList);
       const cityObject = {
         key: res.data.id,
@@ -49,7 +48,6 @@ class App extends Component {
 
   addToDatabase = (cityObject) => {
     weatherRef.push(cityObject);
-    // console.log(cityObject)
   }
 
   deleteFromDatabase = (firebaseKey) => {
@@ -86,10 +84,20 @@ class App extends Component {
   render() {
     console.log('render was called')
     return (
-      <div className="App">
-        <Title />
-        <Form getWeather={this.getWeather}  />
-        <Weather weatherList={this.state.cityList} deleteFromDatabase={this.deleteFromDatabase}/>
+      <div className="App body">
+        <div className="wrapper">
+          <header>
+            <Title />
+          </header>
+          <main>
+            <Form getWeather={this.getWeather}  />
+            <Weather weatherList={this.state.cityList} deleteFromDatabase={this.deleteFromDatabase}/>
+          </main>
+          <footer>
+
+          </footer>
+        </div>
+      
       </div>
     );
   }
