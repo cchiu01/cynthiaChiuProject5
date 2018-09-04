@@ -10,7 +10,7 @@ import React, { Component } from 'react'
                                         return(
                                         <div className="city-weather-tile" key={item.key}>
                                             <div className="weather-tile-container">
-                                                <h2>{item.city}, {item.country}</h2>
+                                                <h3>{item.city}, {item.country}</h3>
                                                 <button onClick={() => {
                                                     this.props.deleteFromDatabase(item.firebaseKey)
                                                     }}><i class="fas fa-times"></i></button>

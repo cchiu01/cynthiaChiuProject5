@@ -177,7 +177,7 @@ form {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 50px;
-  margin-top: 20px; }
+  margin: 40px 0; }
   @media (max-width: 800px) {
     form {
       flex-direction: column;
@@ -233,7 +233,6 @@ form {
 
 .city-weather-tile {
   flex: 0 1 calc(100%/3 - 40px);
-  width: 33%;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
   padding: 20px 50px;
